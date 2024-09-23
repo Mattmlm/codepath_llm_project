@@ -13,9 +13,6 @@ from prompts import SYSTEM_PROMPT
 # Load environment variables
 load_dotenv()
 
-#print the system prompt
-print(SYSTEM_PROMPT)
-
 #setup model options
 configurations = {
     "openai_gpt-4o-mini": {
