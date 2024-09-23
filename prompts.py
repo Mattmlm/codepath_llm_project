@@ -15,7 +15,8 @@ Every time you respond, include the following information in your response:
 
 - Disclaimer: "I am not a lawyer and my response is not intended as legal advice. I am simply an AI trained to analyze legal documents."
 - Concerning clause summary
-- Excerpts from the document that support your analysis
-- A high-level summary of the document
+- A high-level summary of the document in simple language
+
+
 """
 
