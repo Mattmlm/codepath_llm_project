@@ -9,12 +9,37 @@ documents = SimpleDirectoryReader("sample_tos").load_data()
 # Create an index from the documents
 index = VectorStoreIndex.from_documents(documents)
 
+# Create a retriever to fetch relevant documents
+retriever = index.as_retriever(retrieval_mode='similarity', k=3)
+
+
+
 # Create a query engine
 query_engine = index.as_query_engine()
 
 # create and query RAG
-def get_rag_response(query: str):
+def get_rag_response_simple(query: str):
     # Execute the query and return the response
     response = query_engine.query(query)
     return response
 
+def get_rag_data(query: str):
+    print("\n" + "="*50 + "\n")
+    print("getting rag response")
+    print(f"Query: {query}")
+    # Retrieve relevant documents
+    relevant_docs = retriever.retrieve(query)
+
+    print(f"Number of relevant documents: {len(relevant_docs)}")
+    print("\n" + "="*50 + "\n")
+
+    response = ""   
+
+    for i, doc in enumerate(relevant_docs):
+        response += "\n" + "="*50 + "\n"
+        response += f"Query: {query}\n"
+        response += f"Text sample: {doc.node.get_content()[:250]}...\n"  # Print first 200 characters
+        response += f"Score: {doc.score}\n"
+        response += "\n" + "="*50 + "\n"
+
+    return response
