@@ -9,6 +9,7 @@ from langsmith.wrappers import wrap_openai
 from openai import OpenAI
 
 from prompts import SYSTEM_PROMPT
+from rag_utils import get_rag_response
 
 # Load environment variables
 load_dotenv()
