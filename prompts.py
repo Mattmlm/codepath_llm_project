@@ -68,3 +68,5 @@ Every time you create a final response, include the following information in you
 - A high-level summary of the document in simple language
 
 """
+
+FUNCTION_KEYWORDS = ['get_rag_data',]

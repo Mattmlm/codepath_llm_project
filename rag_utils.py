@@ -37,7 +37,7 @@ async def get_rag_data(query: str):
     for i, doc in enumerate(relevant_docs):
         response += "\n" + "="*50 + "\n"
         response += f"Query: {query}\n"
-        response += f"Text: {doc.node.get_content()[:500]}...\n"  # Print first 200 characters
+        response += f"Text: {doc.node.get_content()}...\n" 
         response += f"Score: {doc.score}\n"
         response += "\n" + "="*50 + "\n"
 
