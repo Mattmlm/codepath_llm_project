@@ -8,7 +8,7 @@ from langsmith import traceable
 from langsmith.wrappers import wrap_openai
 from openai import OpenAI
 
-from prompts import SYSTEM_PROMPT, FUNCTION_KEYWORDS, RAG_PROMPT
+from prompts import SYSTEM_PROMPT, FUNCTION_KEYWORDS
 from rag_utils import get_rag_data
 
 # Load environment variables
@@ -143,7 +143,7 @@ async def on_message(message: cl.Message):
                         #get the rag data
                         rag_data = await get_rag_data(function_argument)
                         #add the rag data to the response message
-                        print(f"rag_data:{rag_data}")
+                        print(f"rag_data:{rag_data[:500]}")
                         message_history.append({"role": "system", "content": f"Fetched Terms of Service data: {rag_data}"})
 
         # at this point, we've processed the function call and added the context to the message history
